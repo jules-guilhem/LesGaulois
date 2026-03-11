@@ -5,7 +5,6 @@ public class Romain {
 	private int force;
 	
 	public Romain(String nom, int force) {
-		super();
 		this.nom = nom;
 		this.force = force;
 	}
@@ -20,6 +19,17 @@ public class Romain {
 
 	private String prendreParole() {
 		return "Le romain " + nom + " : ";
+	}
+	
+	public void recevoirCoup(int forceCoup) {
+		force = force - forceCoup;
+		if (force<1) {
+			parler("J'abandonne !");
+		}
+		else {
+			parler("Aïe");
+		}
+		
 	}
 	
 }
