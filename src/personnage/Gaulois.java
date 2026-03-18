@@ -29,7 +29,7 @@ public class Gaulois {
 		return "Le gaulois " + nom + " : ";
 	}
 
-	@Override
+	
 	public String toString() {
 		return nom;
 	}
@@ -40,24 +40,27 @@ public class Gaulois {
 		effetPotion -= 1;
 	}
 
-	public static void main(String[] args) {
-		Gaulois asterix = new Gaulois("Astérix", 8);
-		System.out.println(asterix);
-
-	}
 
 	public void boirePotion(int forcePotion) {
 		effetPotion = forcePotion;
 	}
 
-	public void sePresenter(Gaulois gaulois) {
-		if (gaulois == gaulois.village.getChef()) {
-			parler("Bonjour, je m'appelle " + getNom() + ". Je suis le chef du village : " + gaulois.village.getNom());
-		} else if (gaulois.village != null) {
-			parler("Bonjour, je m'appelle " + getNom() + ". J'habite le village : " + gaulois.village.getNom());
+	public void sePresenter() {
+		if (this.village != null && this == this.village.getChef()) {
+			parler("Bonjour, je m'appelle " + getNom() + ". Je suis le chef du village : " + this.village.getNom());
+		} else if (this.village != null) {
+			parler("Bonjour, je m'appelle " + getNom() + ". J'habite le village : " + this.village.getNom());
 		} else {
 			parler("Bonjour, je m'appelle " + getNom() + ". Je voyage de village en village.");
 		}
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		Gaulois asterix = new Gaulois("Astérix", 8);
+		System.out.println(asterix);
+
 	}
 
 }
